@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreTranslate API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-height: 100px;
+        }
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        select {
+            padding: 8px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LibreTranslate API Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Direct API Call</h2>
+        <div>
+            <select id="sourceLanguage">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+            </select>
+            
+            <select id="targetLanguage">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+                <option value="zh">Chinese</option>
+            </select>
+            
+            <button id="translateBtn">Translate</button>
+        </div>
+        
+        <div>
+            <h3>Text to translate:</h3>
+            <textarea id="textToTranslate" rows="4" style="width: 100%">Hello, welcome to our farming website. We provide AI-powered crop recommendations for farmers.</textarea>
+        </div>
+        
+        <div class="loading" id="loading">
+            <p>Translating... Please wait.</p>
+        </div>
+        
+        <div>
+            <h3>Result:</h3>
+            <div id="result"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const translateBtn = document.getElementById('translateBtn');
+            const textToTranslate = document.getElementById('textToTranslate');
+            const sourceLanguage = document.getElementById('sourceLanguage');
+            const targetLanguage = document.getElementById('targetLanguage');
+            const result = document.getElementById('result');
+            const loading = document.getElementById('loading');
+            
+            translateBtn.addEventListener('click', async function() {
+                const text = textToTranslate.value;
+                const source = sourceLanguage.value;
+                const target = targetLanguage.value;
+                
+                if (!text) {
+                    alert('Please enter text to translate');
+                    return;
+                }
+                
+                loading.style.display = 'block';
+                result.textContent = '';
+                
+                try {
+                    const translatedText = await translateText(text, source, target);
+                    result.textContent = translatedText;
+                } catch (error) {
+                    result.textContent = 'Translation error: ' + error.message;
+                } finally {
+                    loading.style.display = 'none';
+                }
+            });
+        });
+        
+        async function translateText(text, sourceLang, targetLang) {
+            try {
+                // Don't translate if source and target languages are the same
+                if (sourceLang === targetLang) {
+                    return text;
+                }
+                
+                const LIBRETRANSLATE_API_URL = 'https://libretranslate.de/translate';
+                
+                const response = await fetch(LIBRETRANSLATE_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        q: text,
+                        source: sourceLang,
+                        target: targetLang,
+                        format: 'text',
+                        api_key: '' // Leave empty for public instances
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Translation API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data.translatedText;
+            } catch (error) {
+                console.error('Translation error:', error);
+                throw error;
+            }
+        }
+    </script>
+</body>
+</html>

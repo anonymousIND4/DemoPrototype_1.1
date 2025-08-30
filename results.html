@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Results - AgroAI – Smart Crop Advisor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">AgroAI</a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <i class="fas fa-times" id="closeMenu"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" id="openMenu"></i>
+        </div>
+    </nav>
+
+    <!-- Results Hero Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Your Crop Recommendation</h1>
+            <p>Based on your soil and environmental conditions</p>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-detail">
+        <div class="container">
+            <div class="results-container" id="detailedResults">
+                <!-- This content will be dynamically populated by JavaScript -->
+                <!-- Placeholder structure below -->
+                <div class="crop-header">
+                    <div class="crop-image">
+                        <img src="images/crops/rice.jpg" alt="Rice Crop" id="cropImage">
+                    </div>
+                    <div class="crop-title">
+                        <h2 id="cropName">Rice</h2>
+                        <p class="crop-scientific" id="cropScientific">Oryza sativa</p>
+                        <div class="crop-match">
+                            <span class="match-label">Match Score:</span>
+                            <div class="match-bar">
+                                <div class="match-fill" id="matchScore" style="width: 92%;"></div>
+                            </div>
+                            <span class="match-percent" id="matchPercent">92%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crop-details">
+                    <h3>About This Crop</h3>
+                    <p id="cropDescription">Rice is one of the most important food crops in the world, particularly in Asia where it is a staple food. It grows in paddy fields and requires significant amounts of water. Rice thrives in warm, humid conditions with good irrigation systems.</p>
+                    
+                    <h3>Growing Conditions</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <h4>Temperature</h4>
+                            <p id="idealTemp">20-35°C</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-tint"></i>
+                            <h4>Water Needs</h4>
+                            <p id="waterNeeds">High</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-seedling"></i>
+                            <h4>Growing Season</h4>
+                            <p id="growingSeason">100-150 days</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-sun"></i>
+                            <h4>Sunlight</h4>
+                            <p id="sunlightNeeds">Full sun</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Farming Tips</h3>
+                    <ul class="farming-tips" id="farmingTips">
+                        <li>Prepare the soil by plowing and harrowing to ensure it's level for even water distribution.</li>
+                        <li>Maintain water levels at 2-5 cm during the growing period.</li>
+                        <li>Apply fertilizers in split doses for better nutrient uptake.</li>
+                        <li>Monitor for pests like stem borers and diseases like blast.</li>
+                        <li>Harvest when 80-85% of the grains have turned golden yellow.</li>
+                    </ul>
+                    
+                    <h3>Market Value</h3>
+                    <div class="market-info">
+                        <div class="market-item">
+                            <h4>Demand</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="market-item">
+                            <h4>Profit Potential</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="market-item">
+                            <h4>Investment Required</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-summary">
+                    <h3>Your Input Summary</h3>
+                    <div class="input-grid">
+                        <div class="input-item">
+                            <span class="input-label">Nitrogen:</span>
+                            <span class="input-value" id="inputN">80 kg/ha</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">Phosphorus:</span>
+                            <span class="input-value" id="inputP">45 kg/ha</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">Potassium:</span>
+                            <span class="input-value" id="inputK">40 kg/ha</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">pH:</span>
+                            <span class="input-value" id="inputPH">6.5</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">Rainfall:</span>
+                            <span class="input-value" id="inputRainfall">200 mm</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">Temperature:</span>
+                            <span class="input-value" id="inputTemp">25 °C</span>
+                        </div>
+                        <div class="input-item">
+                            <span class="input-label">Humidity:</span>
+                            <span class="input-value" id="inputHumidity">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <a href="recommendation.html" class="btn btn-primary">Try Another Recommendation</a>
+                    <a href="index.html" class="btn btn-outline">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Crops Section -->
+    <section class="alternative-crops">
+        <div class="container">
+            <h2>Alternative Crops to Consider</h2>
+            <div class="alt-crops-grid">
+                <div class="alt-crop-card">
+                    <img src="images/crops/wheat.jpg" alt="Wheat">
+                    <h3>Wheat</h3>
+                    <p>Match Score: <span>85%</span></p>
+                    <a href="#" class="btn btn-small">View Details</a>
+                </div>
+                <div class="alt-crop-card">
+                    <img src="images/crops/maize.jpg" alt="Maize">
+                    <h3>Maize</h3>
+                    <p>Match Score: <span>78%</span></p>
+                    <a href="#" class="btn btn-small">View Details</a>
+                </div>
+                <div class="alt-crop-card">
+                    <img src="images/crops/cotton.jpg" alt="Cotton">
+                    <h3>Cotton</h3>
+                    <p>Match Score: <span>72%</span></p>
+                    <a href="#" class="btn btn-small">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AgroAI</h3>
+                    <p>AI-powered crop recommendations for farmers.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@agroai.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AgroAI – Smart Crop Advisor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/translate-api.js"></script>
+</body>
+</html>

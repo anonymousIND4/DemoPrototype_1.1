@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroAI – Smart Crop Advisor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">AgroAI</a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">About</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+                    <li><a href="news.html" data-i18n="nav_news">News</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    <li class="language-selector">
+                        <div class="lang-btn">
+                            <span class="current-lang">EN</span>
+                            <span class="fas fa-globe"></span>
+                        </div>
+                        <ul class="lang-dropdown">
+                            <li data-lang="en" class="active">English</li>
+                            <li data-lang="hi">हिंदी</li>
+                            <li data-lang="ta">தமிழ்</li>
+                            <li data-lang="te">తెలుగు</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" id="openMenu"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-i18n="hero_title">AgroAI – Smart Crop Advisor</h1>
+                <p data-i18n="hero_subtitle">AI-powered crop recommendations for farmers</p>
+                <a href="recommendation.html" class="btn btn-primary" data-i18n="get_started">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://thumbs.dreamstime.com/b/happy-family-farmer-agricultural-field-indian-203865504.jpg" alt="Farming Illustration">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 data-i18n="how_helps">How AgroAI Helps You</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Crop Recommendaton</h3>
+                    <p>Get AI-powered suggestons for the best crops to grow based on your sol condtons.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-sun-rain"></i>
+                    <h3>Weather Updates</h3>
+                    <p>Stay nformed about weather condtons affectng your farmng decsons.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Fertlzer Advce</h3>
+                    <p>Receve personalzed fertlzer recommendatons for optmal crop growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="photo-gallery">
+        <div class="container">
+            <h2>Smart Farmng n Acton</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://thumbs.dreamstime.com/b/indian-farmer-13742580.jpg" alt="Farm Landscape" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Modern Farmng Landscape</h3>
+                        <p>Sustanable agrcultural practces for better yelds</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/smart-farming.svg" alt="Smart Farming Technology" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>AI-Powered Agrculture</h3>
+                        <p>Usng technology to optmze crop producton</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Optmze Your Farm?</h2>
+            <p>Use our AI-powered tool to get personalzed crop recommendatons.</p>
+            <a href="recommendation.html" class="btn btn-secondary">Get Crop Recommendatons</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AgroAI</h3>
+                    <p>AI-powered crop recommendatons for farmers.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><span class="fas fa-envelope"></span> nfo@agroa.com</p>
+                    <p><span class="fas fa-phone"></span> +91 1234567890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><span class="fab fa-facebook"></span></a>
+                        <a href="#"><span class="fab fa-twitter"></span></a>
+                        <a href="#"><span class="fab fa-nstagram"></span></a>
+                        <a href="#"><span class="fab fa-linkedin"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AgroAI – Smart Crop Advsor. All rghts reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/translate-api.js"></script>
+</body>
+</html>
